@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поздравление</title>
+    <style>
+        body {
+            background-color: #ffffff; /* Белый фон */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 25px;
+            min-height: 60px;
+        }
+
+        .wish {
+            font-size: 1.25rem;
+            color: #555555;
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 40px;
+            min-height: 90px;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Имя -->
+        <div class="name" id="nameDisplay"></div>
+
+        <!-- Пожелание -->
+        <div class="wish" id="wishDisplay"></div>
+
+        <!-- Кнопка переключения -->
+        <button class="btn" onclick="nextPerson()">Следующее имя</button>
+    </div>
+
+    <script>
+        // Массив из 10 имён и пожеланий
+        const people = [
+            { name: "Тешебаева Мавлюда", wish: "Анын өткөн күндөрүндөгү кемчиликтерин кечир, бүгүнкү күнүнө береке бер, келечегин нурлуу кыл. Жүрөгүнө кайгы салба, жүзүнөн жылмаюуну кетирбе. Эки дуйно бактылуу кыл." },
+            { name: "Тешебаева Мастура", wish: "Анын өткөн күндөрүндөгү кемчиликтерин кечир, бүгүнкү күнүнө береке бер, келечегин нурлуу кыл. Жүрөгүнө кайгы салба, жүзүнөн жылмаюуну кетирбе. Эки дуйно бактылуу кыл." },
+            { name: "Тешебаев Абдурасул", wish: "Анын өткөн күндөрүндөгү кемчиликтерин кечир, бүгүнкү күнүнө береке бер, келечегин нурлуу кыл. Жүрөгүнө кайгы салба, жүзүнөн жылмаюуну кетирбе. Эки дуйно бактылуу кыл." },
+            { name: "Равшан жезде", wish: "Анын өткөн күндөрүндөгү кемчиликтерин кечир, бүгүнкү күнүнө береке бер, келечегин нурлуу кыл. Жүрөгүнө кайгы салба, жүзүнөн жылмаюуну кетирбе. Эки дуйно бактылуу кыл." },
+            { name: "Тешебаев Абдурасул", wish: "Анын өткөн күндөрүндөгү кемчиликтерин кечир, бүгүнкү күнүнө береке бер, келечегин нурлуу кыл. Жүрөгүнө кайгы салба, жүзүнөн жылмаюуну кетирбе. Эки дуйно бактылуу кыл." },
+            { name: "", wish: "" },
+            { name: "", wish: "" },
+            { name: "", wish: "" },
+            { name: "", wish: "" }
+        ];
+
+        let currentIndex = 0;
+
+        function updateCard() {
+            document.getElementById("nameDisplay").innerText = people[currentIndex].name;
+            document.getElementById("wishDisplay").innerText = people[currentIndex].wish;
+        }
+
+        function nextPerson() {
+            currentIndex = (currentIndex + 1) % people.length;
+            updateCard();
+        }
+
+        // Загрузка первого человека при старте
+        updateCard();
+    </script>
+
+</body>
+</html>
